@@ -27,7 +27,7 @@
                 <p class="small card-text">
                     {% if service.has_incident %}
                         {% with incident=service.get_incident %}
-                        <p><strong>{{ incident.title }}:</strong> {{ incident.description }}</p>
+                        <p><strong>Active Incident:</strong> {{ incident.title }}</p>
                         {% endwith %}
                     {% else %}
                         Service working as expected
