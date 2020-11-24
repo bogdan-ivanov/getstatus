@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$bhp4jwl(i#z!j-_oa^29&e5y7(^heerks8vdr=(2g3$=oh%j8'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG") == "TRUE"
 
 ALLOWED_HOSTS = []
 
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'getstatus.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-DB_URL = os.getenv("DATABASE_URL")
+DB_URL = str(os.getenv("DATABASE_URL"))
 DB_FROM_ENV = dj_database_url.parse(DB_URL)
 
 DATABASES = {
