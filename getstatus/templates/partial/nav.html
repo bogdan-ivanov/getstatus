@@ -1,1 +1,9 @@
-<nav class="navbar navbar-light justify-content-center"><a class="navbar-brand mr-0" href="#">Pied Piper</a></nav>
+<nav class="navbar navbar-light justify-content-center">
+    <a class="navbar-brand mr-0" href="{% url 'status' %}">
+        {% if config.LOGO_URL %}
+            <img src="{{ config.LOGO_URL }}" alt="{{ config.COMPANY_NAME }}" />
+        {% else %}
+            {{ config.COMPANY_NAME }}
+        {% endif %}
+    </a>
+</nav>

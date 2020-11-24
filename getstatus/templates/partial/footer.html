@@ -1,16 +1,12 @@
 <footer class="py-5">
     <div class="container text-center">
-        <img src="https://bootstrapshuffle.com/placeholder/pictures/bg_square.svg?primary=009688" alt=""
-             height="40">
-        <h2 class="my-3"><a href="#">Pied Piper</a></h2>
-        <p class="lead">Our mission is not to outsell Hooli with a product like their latest Box 3. We are not in it
-            for the money - we are in it to make the whole world decentralized.</p>
+        <h2 class="my-3"><a href="{% url 'status' %}">{{ config.COMPANY_NAME }}</a></h2>
+        <p class="lead">
+            {{ config.COMPANY_MISSION }}
+        </p>
         <ul class="nav justify-content-center">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Enterprise</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">ICO</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ config.COMPANY_URL }}">Company Site</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'status' %}">Status Page</a></li>
         </ul>
     </div>
 </footer>

@@ -21,5 +21,5 @@ from getstatus.views import status
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', status),
+    path('', status, name='status'),
 ]

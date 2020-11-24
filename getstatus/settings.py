@@ -42,6 +42,9 @@ INSTALLED_APPS = [
 
     'django.contrib.humanize',
 
+    'constance',
+    'constance.backends.database',
+
     'getstatus',
 ]
 
@@ -129,3 +132,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+
+CONSTANCE_CONFIG = {
+    'COMPANY_NAME': ('Dunder Mifflin', 'The name of the company (example: "Dunder Mifflin")'),
+    'COMPANY_MISSION': ('', 'Will be displayed in the footer'),
+    'LOGO_URL': ('', 'Logo URL'),
+    'COMPANY_URL': ('', 'Company URL'),
+}
