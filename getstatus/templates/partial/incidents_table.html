@@ -1,0 +1,30 @@
+{% load humanize %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">System</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th class="text-center" scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for incident in incidents %}
+        <tr>
+            <td>{{ incident.title }}</td>
+            <td>{{ incident.system }}</td>
+            <td>{{ incident.start|default:"-"|naturaltime }}</td>
+            <td>{{ incident.end|default:"-"|naturaltime }}</td>
+            <td class="text-center">
+                <span class="badge badge-warning">
+                    {{ incident.status }}
+                </span>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

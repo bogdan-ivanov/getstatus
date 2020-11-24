@@ -1,0 +1,40 @@
+<div class="my-5">
+    {% for service in services %}
+    <div class="card mb-3 {% if service.has_incident %}bg-warning text-white{% else %}bg-light{% endif %}">
+        <div class="card-body row">
+            <div class="col-sm-4 col-md-2">
+                {% if service.has_incident %}
+                <svg stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                     width="60" height="60" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                {% else %}
+                <svg stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                     width="60" height="60" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                {% endif %}
+            </div>
+            <div class="col-sm-8 col-md-10 text-left">
+                <h6 class="card-title">
+                    {{ service.name }}
+                </h6>
+                <p class="small card-text">
+                    {% if service.has_incident %}
+                        {% with incident=service.get_incident %}
+                        <p><strong>{{ incident.title }}:</strong> {{ incident.description }}</p>
+                        {% endwith %}
+                    {% else %}
+                        Service working as expected
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
